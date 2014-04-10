@@ -1102,9 +1102,9 @@ class HTTPConnection:
         values = list(values)
         for i, one_value in enumerate(values):
             if hasattr(one_value, 'encode'):
-                values[i] = one_value.encode('latin-1')
+                values[i] = one_value.encode('utf-8')
             elif isinstance(one_value, int):
-                values[i] = str(one_value).encode('ascii')
+                values[i] = str(one_value).encode('utf-8')
         value = b'\r\n\t'.join(values)
         header = header + b': ' + value
         self._output(header)
